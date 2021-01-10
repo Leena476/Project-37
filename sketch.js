@@ -30,10 +30,6 @@ function setup () {
     save = createButton("SAVE NAME");
     save.position(1170,100);
 
-    button1 = createButton("FEED DOG");
-    button1.position(1400,70);
-    button1.mousePressed(feedDog);
-
     button2 = createButton("ADD FOOD");
     button2.position(1310,70);
     button2.mousePressed(addFoods);
@@ -55,6 +51,10 @@ function draw () {
     save.mousePressed(function(){
       database.ref("/").update({Name:Name});
     })
+    
+    button1 = createButton("FEED " + Name);
+    button1.position(1400,70);
+    button1.mousePressed(feedDog);
 
     foodObj.getFoodStock();
 
